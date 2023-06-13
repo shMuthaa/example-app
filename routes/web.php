@@ -41,5 +41,4 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('');
 });
-
 Route::get('/process_signup', [Controller::class, 'create']);

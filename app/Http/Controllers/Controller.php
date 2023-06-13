@@ -1,20 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
+Route::get('/', function () {
+    return view('index');
+});
+Route::get('/login', function () {
+    return view('login');
+});
+Route::get('/signup', function () {
+    return view('signup');
+});
 
-class Controller extends BaseController
-{
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    public function create(){
-        return "You clicked on Signup";
-    }
-
-}
-
-
+Route::get('/process_signup', [Controller::class, 'create']);
